@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f35b3f" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23438b59'/%3E%3Cpath d='M28 8q20 42 0 84M50 4q20 46 0 92M72 8q20 42 0 84' fill='none' stroke='%23d5df77' stroke-width='7'/%3E%3C/svg%3E" />
+  <meta name="description" content="一款手绘夏日风格的合成大西瓜游戏" />
+  <title>瓜瓜夏日祭｜合成大西瓜</title>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div class="brand"><span class="stamp">夏</span><div><p>FRUIT STAND · 2026</p><h1>瓜瓜夏日祭</h1></div></div>
+      <div class="actions">
+        <button id="soundBtn" class="icon-btn" aria-label="关闭音效" title="音效">♫</button>
+        <button id="helpBtn" class="icon-btn" aria-label="游戏说明" title="说明">?</button>
+      </div>
+    </header>
+
+    <section class="game-layout">
+      <aside class="score-card torn">
+        <p class="eyebrow">今日收获</p><strong id="score">0</strong><span>分</span>
+        <div class="best"><span>最高纪录</span><b id="bestScore">0</b></div>
+        <div class="next"><span>下一颗</span><canvas id="nextCanvas" width="84" height="84" aria-label="下一颗水果"></canvas></div>
+      </aside>
+
+      <section class="cabinet" aria-label="游戏区域">
+        <div class="awning"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="game-stage" id="gameStage">
+          <canvas id="gameCanvas" aria-label="合成大西瓜游戏画布"></canvas>
+          <div class="danger-line"><span>警戒线</span></div>
+          <div id="startPanel" class="overlay show">
+            <div class="hero-fruit">🍉</div><p class="kicker">叮！水果摊开张啦</p>
+            <h2>合成一颗<br><em>大西瓜</em></h2>
+            <p>移动水果，点击或按空格投下<br>相同水果碰面会升级</p>
+            <button id="startBtn" class="primary">开始摆摊 <span>→</span></button>
+          </div>
+          <div id="pausePanel" class="overlay"><p class="kicker">先歇一会儿</p><h2>暂停中</h2><button id="resumeBtn" class="primary">继续游戏 <span>→</span></button></div>
+          <div id="gameOverPanel" class="overlay"><p class="kicker">水果满出来啦</p><h2>今日收摊</h2><p>本次得分 <b id="finalScore">0</b></p><button id="restartBtn" class="primary">再来一局 <span>↻</span></button></div>
+        </div>
+        <div class="controls"><button id="pauseBtn" disabled>Ⅱ 暂停</button><p><kbd>←</kbd><kbd>→</kbd> 移动　<kbd>Space</kbd> 投放</p><button id="restartSmallBtn" disabled>↻ 重开</button></div>
+      </section>
+
+      <aside class="fruit-guide torn"><p class="eyebrow">水果图鉴</p><div id="fruitGuide"></div><p class="tip">两个相同水果<br>碰一碰，就会长大！</p></aside>
+    </section>
+    <footer><span>移动鼠标或手指来瞄准</span><i>✦</i><span>别让水果越过警戒线</span></footer>
+  </main>
+
+  <dialog id="helpDialog"><button id="closeHelp" aria-label="关闭">×</button><p class="eyebrow">摆摊指南</p><h2>怎么玩？</h2><ol><li><b>瞄准</b><span>移动鼠标、手指，或使用左右方向键。</span></li><li><b>投放</b><span>点击游戏区、轻触屏幕，或按空格键。</span></li><li><b>合成</b><span>两个相同水果碰撞后，会变成更大的水果并得分。</span></li><li><b>别溢出</b><span>水果长时间越过红色警戒线，游戏结束。</span></li></ol><button id="gotIt" class="primary">知道啦</button></dialog>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
